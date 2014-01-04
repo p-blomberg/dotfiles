@@ -6,3 +6,4 @@
 :set number
 :syn on
 :set encoding=utf8
+:set guioptions-=T
