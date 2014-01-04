@@ -1,0 +1,19 @@
+alias l='ls -GFh'
+alias ll='l -l'
+alias ls='ls -F'
+
+alias grep='grep -i'
+alias fndate="date +%Y-%m-%d--%H-%M-%S"
+
+fpath=($HOME/.zsh/func $fpath)
+typeset -U fpath
+zstyle ':completion:*' special-dirs true
+
+#PATH="/usr/local/mysql/bin:/Users/slafs/pear/bin:${PATH}"
+
+alias pingsu="ping ping.sunet.se"
+alias pingfsu="sudo ping -f ping.sunet.se"
+alias gitkad="gitk --all --date-order &disown"
+
+alias pu='noglob dumheter/push/pu.sh'
+alias p='noglob dumheter/push/p.sh'
