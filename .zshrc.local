@@ -1,3 +1,5 @@
+alias gputemp="nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader"
+
 alias l='ls -GFh'
 alias ll='l -l'
 alias ls='ls -F'
