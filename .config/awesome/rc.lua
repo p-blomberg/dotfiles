@@ -7,6 +7,10 @@ require("beautiful")
 -- Notification library
 require("naughty")
 
+-- widget support
+vicious = require("vicious")
+vicious.contrib = require("vicious.contrib")
+
 -- Load Debian menu entries
 require("debian.menu")
 
@@ -37,7 +41,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/usr/share/awesome/themes/default/theme.lua")
+beautiful.init(awful.util.getdir("config") .. "/theme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
@@ -74,7 +78,7 @@ layouts =
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
+    tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[2])
 end
 -- }}}
 
@@ -108,7 +112,47 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
                                      menu = mymainmenu })
 -- }}}
 
+-- From: http://awesome.naquadah.org/wiki/Awesome_3_configuration
+function execute_command(command)
+   local fh = io.popen(command)
+   local str = ""
+   for i in fh:lines() do
+      str = str .. i
+   end
+   io.close(fh)
+   return str
+end
+
+-- Helper function to build all you need
+function widget_with_timeout(command, seconds)
+  local object = {}
+  object.command = command
+  object.widget = widget({ type = "textbox" })
+  
+  object.update = function ()
+    local result = execute_command(object.command)
+    object.widget.text = " " .. awful.util.escape(result) .. " "
+  end
+
+  object.timer = timer({ timeout = seconds })
+  object.timer:add_signal("timeout", object.update)
+  object.timer:start()
+
+  object.update() -- Initialize immediately
+  return object
+end
+
 -- {{{ Wibox
+
+-- Initialize widget
+datewidget = widget({ type = "textbox" })
+vicious.register(datewidget, vicious.widgets.date, "%a %d %b, %X, v%V ", 1)
+
+cputemp = widget({ type = "textbox" })
+vicious.register(cputemp, vicious.widgets.thermal, "cpu=$1°C ", 20, {"coretemp.0","core"})
+
+gputemp = widget_with_timeout('echo gpu=`nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader`°C', 10)
+
 -- Create a textclock widget
 mytextclock = awful.widget.textclock({ align = "right" })
 
@@ -190,7 +234,10 @@ for s = 1, screen.count() do
             layout = awful.widget.layout.horizontal.leftright
         },
         mylayoutbox[s],
-        mytextclock,
+				datewidget,
+				cputemp,
+				gputemp.widget,
+        --mytextclock,
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
