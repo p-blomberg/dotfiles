@@ -1,0 +1,17 @@
+[user]
+	name = Petter Blomberg
+	email = git@petterblomberg.se
+[push]
+	default = current
+[color]
+	ui = yes
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[merge]
+	conflictstyle = diff3
+[rerere]
+	enabled = yes
+[grep]
+	lineNumber = true
