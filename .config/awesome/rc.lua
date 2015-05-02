@@ -107,7 +107,7 @@ mymainmenu = awful.menu({ items = {
 	{ "", height="1" },
 	{"~sanfred","/usr/bin/thunar","/usr/share/icons/gnome/256x256/places/folder.png"},
 	{"downloads","/usr/bin/thunar downloads","/usr/share/icons/gnome/256x256/places/folder.png"},
-	{"DatorDax","/usr/bin/thunar Dropbox/DatorDax","/usr/share/icons/gnome/256x256/places/folder.png"},
+	{"DatorDax","/usr/bin/thunar ownCloud/DatorDax","/usr/share/icons/gnome/256x256/places/folder.png"},
 	{"Ska bokföras","/usr/bin/thunar \"Dropbox/Ombetro HB/4. Ska bokföras\"","/usr/share/icons/gnome/256x256/places/folder.png"},
 	{ "", height="1" },
 	{"Steam","/usr/bin/steam","/home/sanfred/.steam/steam-icon.png"},
