@@ -93,13 +93,26 @@ myawesomemenu = {
 
 mymainmenu = awful.menu({ items = { 
 	{"Xfce Terminal","/usr/bin/xfce4-terminal","/usr/share/pixmaps/xfce4-terminal.xpm"},
+	{ "", height="1" },
+	{"Icedove","/usr/bin/icedove","/usr/share/pixmaps/icedove.xpm"},
+	{ "", height="1" },
 	{"Firefox","/usr/local/bin/firefox","/opt/firefox/browser/icons/mozicon128.png"},
-	{"Iceweasel","iceweasel","/usr/share/pixmaps/iceweasel.xpm"},
+	{"Firefox (new instance)","/usr/local/bin/firefox -new-instance","/opt/firefox/browser/icons/mozicon128.png"},
+	{"FF mail","/home/sanfred/dumheter/ffox-remote/new_window.sh mail","/opt/firefox/browser/icons/mozicon128.png"},
+	{"FF dev","/home/sanfred/dumheter/ffox-remote/new_window.sh dev","/opt/firefox/browser/icons/mozicon128.png"},
+	{"FF surf","/home/sanfred/dumheter/ffox-remote/new_window.sh surf","/opt/firefox/browser/icons/mozicon128.png"},
 	{"Chromium","chromium"},
-	{"Thunar","/usr/bin/thunar","/usr/share/icons/gnome/256x256/places/folder.png"},
+	{ "", height="1" },
 	{"GIMP","/usr/bin/gimp","/usr/share/pixmaps/gimp.xpm"},
 	{ "", height="1" },
+	{"~sanfred","/usr/bin/thunar","/usr/share/icons/gnome/256x256/places/folder.png"},
+	{"downloads","/usr/bin/thunar downloads","/usr/share/icons/gnome/256x256/places/folder.png"},
+	{"DatorDax","/usr/bin/thunar Dropbox/DatorDax","/usr/share/icons/gnome/256x256/places/folder.png"},
+	{"Ska bokföras","/usr/bin/thunar \"Dropbox/Ombetro HB/4. Ska bokföras\"","/usr/share/icons/gnome/256x256/places/folder.png"},
+	{ "", height="1" },
 	{"Steam","/usr/bin/steam","/home/sanfred/.steam/steam-icon.png"},
+	{ "", height="1" },
+	{"1Password","/usr/bin/wine \"/home/sanfred/.wine/drive_c/Program Files/1Password 4/1Password.exe\""},
 	{ "", height="1" },
 	{ "awesome", myawesomemenu, beautiful.awesome_icon },
 	{ "Debian", debian.menu.Debian_menu.Debian, "/usr/share/icons/hicolor/36x36/emblems/emblem-debian.png" },
@@ -149,7 +162,7 @@ datewidget = widget({ type = "textbox" })
 vicious.register(datewidget, vicious.widgets.date, "%a %d %b, %X, v%V ", 1)
 
 cputemp = widget({ type = "textbox" })
-vicious.register(cputemp, vicious.widgets.thermal, "cpu=$1°C ", 20, {"coretemp.0","core"})
+vicious.register(cputemp, vicious.widgets.thermal, "cpu=$1°C ", 20, {"coretemp.0/hwmon/hwmon2","core"})
 
 gputemp = widget_with_timeout('echo gpu=`nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader`°C', 10)
 
@@ -310,7 +323,11 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   awful.util.eval, nil,
                   awful.util.getdir("cache") .. "/history_eval")
-              end)
+              end),
+
+    -- Starta program
+    awful.key({ modkey,           }, "t", function() awful.util.spawn("transset -a -m 0.8 -t") end),
+    awful.key({ modkey,           }, "F12", function () awful.util.spawn("xscreensaver-command -lock") end)
 )
 
 clientkeys = awful.util.table.join(
