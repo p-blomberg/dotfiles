@@ -1,4 +1,5 @@
 xmodmap .Xmodmap
+xbindkeys
 xcompmgr &
 xscreensaver -no-splash &
 thunar --daemon &
