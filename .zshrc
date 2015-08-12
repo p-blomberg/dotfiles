@@ -43,8 +43,8 @@ bindkey "\e[6~" history-beginning-search-forward  # pgdn
 #bindkey "\e[8~" end-of-line
 #bindkey "\e[H" beginning-of-line
 #bindkey "\e[F" end-of-line
-#bindkey "\eOH" beginning-of-line
-#bindkey "\eOF" end-of-line
+bindkey "\eOH" beginning-of-line
+bindkey "\eOF" end-of-line
 #bindkey "\eOd" backward-word
 #bindkey "\eOc" forward-word
 
