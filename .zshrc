@@ -50,38 +50,6 @@ bindkey "\eOF" end-of-line
 
 alias py=python
 alias find='noglob find'
-alias woi='ssh wijk -t screen -Dr'
-alias soi='ssh soija -t screen -Dr'
-alias mutto='ssh mail.oijk.net -t env LC_ALL=en_US.UTF-8 mutt'
-alias gate="ssh -A gate.ladan.se -t"
-alias webs='python -m SimpleHTTPServer'
-
-update-zsh() {
-	emulate -L zsh
-
-	if [[ x"$1" = x"" ]]; then
-		BAH_PATH="${HOME}/bah/"
-	else
-		BAH_PATH=$1
-	fi
-	echo "  "BAH_PATH=${BAH_PATH}
-
-	echo "  "Syncing bah-repo.
-	svn up ${BAH_PATH}
-	SVN_REV=$(svn info ${BAH_PATH}|grep Revision|cut -d' ' -f2)
-	echo "  "SVN_REV=${SVN_REV}
-	echo "  "Updating zsh-config.
-	sed -e "s/^# zsh_svn$/# zsh_svn-r${SVN_REV}/" ${BAH_PATH}/configs/zshrc > ~/.zshrc_ && \
-		mv ~/.zshrc_ ~/.zshrc && echo .zshrc updated.
-	sed -e "s/^# zsh_svn$/# zsh_svn-r${SVN_REV}/" ${BAH_PATH}/configs/zprofile > ~/.zprofile_ && \
-		mv ~/.zprofile_ ~/.zprofile && echo .zprofile updated.
-	rm ~/.zcompdump.* 2> /dev/null && echo removed old .zcompdump.
-	echo "  "Recompiling configs.
-	zcompile ~/.zprofile
-	zcompile ~/.zshrc
-	zcompile ~/.zprofile.local
-	zcompile ~/.zshrc.local
-}
 
 precmd() {
 	if [ "$TERM" != "linux" ]; then
