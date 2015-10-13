@@ -28,3 +28,14 @@
 " *** filetype-specific settings ***
 au BufRead,BufNewFile *.yaml,*.yml set expandtab shiftwidth=2 softtabstop=2 tabstop=2
 au BufRead,BufNewFile *.php set foldmethod=indent
+
+" *** Syntastic settings ***
+let g:syntastic_javascript_closurecompiler_script = "/usr/bin/closure-compiler"
+let g:syntastic_javascript_checkers = ["closurecompiler"]
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
