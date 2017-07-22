@@ -27,7 +27,7 @@
 
 " *** filetype-specific settings ***
 au BufRead,BufNewFile *.yaml,*.yml set expandtab shiftwidth=2 softtabstop=2 tabstop=2
-au BufRead,BufNewFile *.php set foldmethod=indent
+au BufRead,BufNewFile *.php set noexpandtab foldmethod=indent
 
 " *** Syntastic settings ***
 let g:syntastic_javascript_closurecompiler_script = "/usr/bin/closure-compiler"
