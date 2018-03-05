@@ -20,7 +20,7 @@ zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
 zstyle ':completion:*' special-dirs true
 
 autoload -U compinit
-compinit -d ~/.zcompdump.`hostname`
+compinit -u -d ~/.zcompdump.`hostname`
 
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
