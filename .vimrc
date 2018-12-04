@@ -39,7 +39,7 @@ au BufRead,BufNewFile *.yaml,*.yml set expandtab shiftwidth=2 softtabstop=2 tabs
 "au BufRead,BufNewFile *.py set expandtab shiftwidth=2 softtabstop=2 tabstop=2
 au BufRead,BufNewFile *.py set copyindent shiftwidth=2 softtabstop=2 tabstop=2
 au BufRead,BufNewFile *.json set noexpandtab
-au BufRead,BufNewFile *.php set foldmethod=indent noexpandtab
+au BufRead,BufNewFile *.php set noexpandtab foldmethod=indent
 
 " status line (more stuff added by syntastic below)
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
