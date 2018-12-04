@@ -103,18 +103,14 @@ myawesomemenu = {
 }
 
 mymainmenu = awful.menu({ items = {
+	{"Gnome Terminal","/usr/bin/gnome-terminal","/usr/share/pixmaps/xfce4-terminal.xpm"},
 	{"Xfce Terminal","/usr/bin/xfce4-terminal","/usr/share/pixmaps/xfce4-terminal.xpm"},
 	{ "", height="1" },
 	{"Thunderbird","/usr/bin/thunderbird","/usr/share/pixmaps/thunderbird.png"},
 	{ "", height="1" },
 	{"Firefox",   "/usr/local/bin/firefox",                                  "/opt/firefox/browser/icons/mozicon128.png"},
 	{"Firefox (new instance)","/usr/local/bin/firefox -new-instance",        "/opt/firefox/browser/icons/mozicon128.png"},
-	{"FF mail",   "/home/sanfred/dumheter/ffox-remote/new_window.sh mail",   "/opt/firefox/browser/icons/mozicon128.png"},
-	{"FF dev",    "/home/sanfred/dumheter/ffox-remote/new_window.sh dev",    "/opt/firefox/browser/icons/mozicon128.png"},
-	{"FF ombetro","/home/sanfred/dumheter/ffox-remote/new_window.sh ombetro","/opt/firefox/browser/icons/mozicon128.png"},
-	{"FF surf",   "/home/sanfred/dumheter/ffox-remote/new_window.sh surf",   "/opt/firefox/browser/icons/mozicon128.png"},
 	{"Chromium", "chromium", "/usr/share/icons/hicolor/128x128/apps/chromium.png"},
-	{"Chromi DEV", "chromium --user-data-dir=/home/sanfred/.config/chromium-dev", "/usr/share/icons/hicolor/128x128/apps/chromium.png"},
 	{"Chrome SV", function() awful.util.spawn_with_shell("LANGUAGE=sv_SE.UTF-8 LANG=sv_SE.UTF-8 /usr/bin/google-chrome --user-data-dir=/home/sanfred/.config/chrome-sv") end, "/opt/google/chrome/product_logo_256.png"},
 	{ "", height="1" },
 	{"PhpStorm", "/opt/PhpStorm/bin/phpstorm.sh", "/opt/PhpStorm/bin/phpstorm.png"},
