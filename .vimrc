@@ -1,3 +1,5 @@
+execute pathogen#infect()
+
 " *** display settings ***
 :set ts=2
 :set shiftwidth=2
@@ -10,7 +12,14 @@
 :set guioptions-=T "disable toolbar
 :set visualbell
 
-:hi CursorColumn cterm=NONE ctermbg=lightgray ctermfg=black guibg=cornsilk guifg=black
+" Colors
+set t_Co=256
+syntax on
+colorscheme minimalist
+hi Comment          ctermfg=238     ctermbg=NONE    cterm=NONE      guifg=#777777       guibg=NONE      gui=NONE
+
+" Cursor column
+:hi CursorColumn cterm=NONE ctermbg=lightgray ctermfg=black guibg=gray23 guifg=white
 :nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 :set cursorcolumn
 
@@ -27,7 +36,14 @@
 
 " *** filetype-specific settings ***
 au BufRead,BufNewFile *.yaml,*.yml set expandtab shiftwidth=2 softtabstop=2 tabstop=2
-au BufRead,BufNewFile *.php set foldmethod=indent
+"au BufRead,BufNewFile *.py set expandtab shiftwidth=2 softtabstop=2 tabstop=2
+au BufRead,BufNewFile *.py set copyindent shiftwidth=2 softtabstop=2 tabstop=2
+au BufRead,BufNewFile *.json set noexpandtab
+au BufRead,BufNewFile *.php set foldmethod=indent noexpandtab
+
+" status line (more stuff added by syntastic below)
+set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+set laststatus=2
 
 " *** Syntastic settings ***
 let g:syntastic_javascript_closurecompiler_script = "/usr/bin/closure-compiler"
