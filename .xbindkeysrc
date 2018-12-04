@@ -1,2 +1,4 @@
 "sudo /usr/sbin/pm-hibernate"
 	Control+Alt+Mod2+Mod4 + XF86Sleep
+"/usr/bin/i3lock -i /tmp/i3lock.png"
+	Control+Alt+Pause
