@@ -101,15 +101,18 @@ zle -N shell-backward-kill-word
 bindkey '^w' shell-backward-kill-word
 
 # Don't know what this does. Ask drougge?
-#fpath=($HOME/.zsh/func $fpath)
-#typeset -U fpath
-#zstyle ':completion:*' special-dirs true
+fpath=($HOME/.zsh/func $fpath)
+typeset -U fpath
+zstyle ':completion:*' special-dirs true
 
 alias ls='ls -F'
 alias fndate="date +%Y-%m-%d--%H-%M-%S"
 alias pingsu="ping ping.sunet.se"
 alias pingfsu="sudo ping -f ping.sunet.se"
 alias gitkad="gitk --all --date-order &disown"
+alias gs="git status"
+alias vs="vagrant ssh"
+alias prettyjson="python -m json.tool"
 
 if [ "$HAVE_RUN_ZPROFILE" != "Y" ]; then
   . ~/.zprofile
