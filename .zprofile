@@ -42,11 +42,13 @@ HISTFILE=~/.zsh_history
 SAVEHIST=3072
 EDITOR="vim"
 
+LANG="en_US.UTF-8"
+LANGUAGE="en_US.UTF-8"
 LC_CTYPE="sv_SE.UTF-8"
 LC_NUMERIC="sv_SE.UTF-8"
 LC_TIME="sv_SE.UTF-8"
 # . ignoreras vid sortering av tex lsoutput
-#LC_COLLATE="en_US.UTF-8"
+LC_COLLATE="en_US.UTF-8"
 LC_MONETARY="sv_SE.UTF-8"
 LC_MESSAGES="en_US.UTF-8"
 LC_PAPER="sv_SE.UTF-8"
