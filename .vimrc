@@ -1,5 +1,3 @@
-execute pathogen#infect()
-
 " *** display settings ***
 :set ts=2
 :set shiftwidth=2
@@ -36,10 +34,9 @@ hi Comment          ctermfg=238     ctermbg=NONE    cterm=NONE      guifg=#77777
 
 " *** filetype-specific settings ***
 au BufRead,BufNewFile *.yaml,*.yml set expandtab shiftwidth=2 softtabstop=2 tabstop=2
-"au BufRead,BufNewFile *.py set expandtab shiftwidth=2 softtabstop=2 tabstop=2
-au BufRead,BufNewFile *.py set copyindent shiftwidth=2 softtabstop=2 tabstop=2
-au BufRead,BufNewFile *.json set noexpandtab
-au BufRead,BufNewFile *.php set noexpandtab foldmethod=indent
+au BufRead,BufNewFile *.py         set expandtab shiftwidth=2 softtabstop=2 tabstop=2
+au BufRead,BufNewFile *.json       set noexpandtab
+au BufRead,BufNewFile *.php        set expandtab shiftwidth=2 softtabstop=2 tabstop=2 foldmethod=indent
 
 " status line (more stuff added by syntastic below)
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
