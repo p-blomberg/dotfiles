@@ -118,7 +118,7 @@ mymainmenu = awful.menu({ items = {
 	{"GIMP","/usr/bin/gimp","/usr/share/pixmaps/gimp.xpm"},
 	{ "", height="1" },
 	{"~sanfred",        "/usr/bin/nautilus",                                        "/usr/share/icons/gnome/256x256/places/folder.png"},
-	{"downloads",       "/usr/bin/nautilus downloads",                              "/usr/share/icons/gnome/256x256/places/folder.png"},
+	{"Downloads",       "/usr/bin/nautilus Downloads",                              "/usr/share/icons/gnome/256x256/places/folder.png"},
 	{"Nordic Keyboards","/usr/bin/nautilus \"ownCloud/Nordic Keyboards\"",             "/usr/share/icons/gnome/256x256/places/folder.png"},
 	{"Ska bokföras",    "/usr/bin/nautilus \"Dropbox/Ombetro HB/4. Ska bokföras\"", "/usr/share/icons/gnome/256x256/places/folder.png"},
 	{ "", height="1" },
