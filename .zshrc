@@ -111,6 +111,7 @@ alias pingsu="ping ping.sunet.se"
 alias pingfsu="sudo ping -f ping.sunet.se"
 alias gitkad="gitk --all --date-order &disown"
 alias gs="git status"
+alias gc="git checkout"
 alias vs="vagrant ssh"
 alias prettyjson="python -m json.tool"
 
