@@ -4,7 +4,7 @@ alias pu='noglob dumheter/push/pu.sh'
 alias p='noglob dumheter/push/p.sh'
 alias scroturl='~/dumheter/scroturl.sh'
 
-alias scannat="cd ~/Dropbox/scanner_inbox/ocr_todo && ../ocr.sh"
+alias scannat="cd ~/ownCloud/Ombetro\ HB/scanner_inbox/ocr_todo && ../ocr.sh"
 
 alias kul="setxkbmap -model pc104 -layout us -variant altgr-intl; xmodmap .Xmodmap"
 alias dask="setxkbmap -model pc105 -layout se; xmodmap .Xmodmap"
@@ -14,3 +14,7 @@ alias x_3wide="xrandr --output HDMI-0 --rotate normal --output DVI-D-0 --rotate 
 alias x_3standing="xrandr --output HDMI-0 --rotate left --output DVI-D-0 --rotate left --right-of HDMI-0 --output DVI-I-1 --rotate left --right-of DVI-D-0"
 
 alias lufttryck="curl -s http://opendata-download-metobs.smhi.se/api/version/latest/parameter/9/station/97400/period/latest-hour/data.csv|head -n 11|tail -n 1|grep 'Data från senaste timmen'|cut -d';' -f3"
+
+alias vups="vagrant up && vagrant ssh"
+
+alias snurr="sudo cryptsetup open /dev/disk/by-id/ata-WDC_WD10EARS-00Y5B1_WD-WCAV5F241952-part1 snurrbackup && sleep 1 && sudo mount /dev/vg-usb/snurrbackup /mnt/snurrbackup"
