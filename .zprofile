@@ -35,6 +35,9 @@ if [[ -d /opt/local/bin ]] ; then
 				MANPATH="/opt/local/man:${MANPATH}"
 		fi
 fi
+if [[ -d /snap/bin ]] ; then
+	PATH="/snap/bin:${PATH}"
+fi
 
 RPROMPT=$'%{\e[31m%}%# %{\e[m%}%{\e[33;1m%}%D{%a %d %b %G}%{\e[m%} %0(?:%{\e[32;1m%}:%{\e[31m%})[%?]%{\e[m%}'
 HISTSIZE=4096
