@@ -18,3 +18,5 @@ alias lufttryck="curl -s http://opendata-download-metobs.smhi.se/api/version/lat
 alias vups="vagrant up && vagrant ssh"
 
 alias snurr="sudo cryptsetup open /dev/disk/by-id/ata-WDC_WD10EARS-00Y5B1_WD-WCAV5F241952-part1 snurrbackup && sleep 1 && sudo mount /dev/vg-usb/snurrbackup /mnt/snurrbackup"
+
+export SSH_AUTH_SOCK="/run/user/$(id -u)/gnupg/S.gpg-agent.ssh"
