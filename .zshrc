@@ -114,6 +114,7 @@ alias gs="git status"
 alias gc="git checkout"
 alias vs="vagrant ssh"
 alias prettyjson="python -m json.tool"
+alias aws-lambda-list-functions-in-all-regions='for Z in `aws ec2 describe-regions --query "Regions[*].RegionName" --output text`; do echo Region: $Z; aws --region=$Z lambda list-functions --query "Functions[*].[FunctionName,Runtime]" ; done'
 
 if [ "$HAVE_RUN_ZPROFILE" != "Y" ]; then
   . ~/.zprofile
